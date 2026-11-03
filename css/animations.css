@@ -1,0 +1,90 @@
+/* =========================================================
+   EVENTORA — animations.css
+   Keyframes, scroll reveal, micro-interactions
+   ========================================================= */
+
+/* ---------- Keyframes ---------- */
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.4); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gradient-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+              transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger child reveals inside grids */
+.event-grid .reveal,
+.category-grid .reveal,
+.registrations-list .reveal {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* ---------- Hero ambient motion ---------- */
+.hero-glow--1 { animation: float 9s ease-in-out infinite; }
+.hero-glow--2 { animation: float 11s ease-in-out infinite reverse; }
+
+/* ---------- Gradient text shimmer ---------- */
+.grad-text { background-size: 200% auto; animation: gradient-pan 8s ease infinite; }
+
+/* ---------- Card entrance (used when filtering re-renders) ---------- */
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.event-card { animation: card-in 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+/* ---------- Skeleton loader (optional future use) ---------- */
+.skeleton {
+  background: linear-gradient(90deg, var(--card-bg) 25%, var(--card-bg-2) 37%, var(--card-bg) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .hero-glow--1, .hero-glow--2, .grad-text, .event-card { animation: none !important; }
+}

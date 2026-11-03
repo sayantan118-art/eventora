@@ -1,0 +1,108 @@
+/* =========================================================
+   EVENTORA — responsive.css
+   Breakpoints: mobile <768, tablet 768–1023, desktop >=1024
+   ========================================================= */
+
+/* ---------- Large desktop ---------- */
+@media (min-width: 1280px) {
+  .container { padding-inline: var(--space-6); }
+}
+
+/* ---------- Tablet and below (<1024) ---------- */
+@media (max-width: 1023px) {
+  .hero-inner { grid-template-columns: 1fr; gap: var(--space-10); text-align: center; }
+  .hero-content { display: flex; flex-direction: column; align-items: center; }
+  .hero-sub { margin-inline: auto; }
+  .social-proof { justify-content: center; }
+  .hero-visual { order: -1; max-width: 340px; }
+
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-banner { min-height: 240px; }
+  .featured-banner-overlay { background: linear-gradient(180deg, transparent 40%, var(--card-bg) 100%); }
+
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .event-grid { grid-template-columns: repeat(2, 1fr); }
+  .registrations-list { grid-template-columns: 1fr; }
+}
+
+/* ---------- Mobile (<768) ---------- */
+@media (max-width: 767px) {
+  :root { --nav-h: 64px; }
+
+  /* Nav -> hamburger */
+  .nav-links {
+    position: fixed; top: var(--nav-h); left: 0; right: 0; flex-direction: column;
+    align-items: stretch; gap: 0; padding: var(--space-3) var(--space-5) var(--space-6);
+    background: var(--bg-secondary); border-bottom: 1px solid var(--border);
+    transform: translateY(-120%); opacity: 0; pointer-events: none;
+    transition: transform var(--transition-slow), opacity var(--transition-slow);
+    box-shadow: var(--shadow-lg);
+  }
+  .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .nav-link { padding: 14px 12px; border-radius: var(--r-md); font-size: 1rem; border-bottom: 1px solid var(--border); }
+  .nav-link.active::after { display: none; }
+  .nav-link.active { background: var(--accent-soft); }
+
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+
+  .section { padding-block: var(--space-14); }
+
+  .hero { padding-top: var(--space-10); padding-bottom: var(--space-10); }
+  .hero-glow--1 { width: 300px; height: 300px; }
+  .hero-glow--2 { width: 260px; height: 260px; }
+  .hero-cta { flex-direction: column; width: 100%; }
+  .hero-cta .btn { width: 100%; }
+  .social-proof { gap: var(--space-6); justify-content: space-around; width: 100%; }
+
+  .featured-body { padding: var(--space-5); }
+  .countdown { gap: var(--space-2); }
+  .featured-actions { flex-direction: column; }
+  .featured-actions .btn { width: 100%; }
+
+  .category-grid { grid-template-columns: 1fr; }
+
+  .explore-controls { flex-direction: column; }
+  .sort-wrap { width: 100%; }
+  .filter-bar { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+  .filter-bar::-webkit-scrollbar { height: 4px; }
+  .filter-bar::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+  .filter-chip { flex-shrink: 0; }
+
+  .event-grid { grid-template-columns: 1fr; }
+
+  .registration-card { flex-direction: column; }
+  .reg-card-thumb { width: 100%; height: 140px; }
+
+  /* Modals full-ish height */
+  .modal { padding: var(--space-2); }
+  .modal-panel { max-height: 94vh; border-radius: var(--r-lg); }
+  .details-banner { aspect-ratio: 16 / 10; }
+  .details-body { padding: var(--space-5); }
+  .details-meta-row { grid-template-columns: 1fr; gap: var(--space-3); }
+  .details-actions { flex-direction: column; }
+  .details-actions .btn { width: 100%; }
+
+  .form-modal-head, .register-form { padding-inline: var(--space-5); }
+  .form-actions { flex-direction: column-reverse; }
+  .form-actions .btn { width: 100%; }
+
+  .confirm-receipt { padding: var(--space-3); }
+  .confirm-actions { flex-direction: column; }
+  .confirm-actions .btn { width: 100%; }
+
+  .footer-nav { gap: var(--space-4); }
+}
+
+/* ---------- Small mobile (<380) ---------- */
+@media (max-width: 379px) {
+  .social-proof strong { font-size: 1.25rem; }
+  .countdown-unit { padding: var(--space-2) 0; }
+  .modal-panel { border-radius: var(--r-md); }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .site-header, .hero-visual, .modal, .toast, .featured-actions, .form-actions { display: none !important; }
+  body { background: #fff; color: #000; }
+}
