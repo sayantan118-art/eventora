@@ -153,7 +153,7 @@
       offsetDays: 26,
       deadlineDaysBefore: 4,
       image:
-        "https://images.unsplash.com/photo-1452626032916-6a7513e3f4b3?auto=format&fit=crop&w=900&q=70"
+        "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=70"
     },
     {
       id: "evt-frame-matters",
@@ -303,7 +303,7 @@
       offsetDays: 16,
       deadlineDaysBefore: 2,
       image:
-        "https://images.unsplash.com/photo-1546519638-68e109496ffc?auto=format&fit=crop&w=900&q=70"
+        "https://images.unsplash.com/photo-1556567812195-b6e6223f4d2d?auto=format&fit=crop&w=900&q=70"
     },
     {
       id: "evt-heritagewalk",
@@ -328,7 +328,7 @@
       offsetDays: 4,
       deadlineDaysBefore: 1,
       image:
-        "https://images.unsplash.com/photo-1564507592333-c4c5e2919766?auto=format&fit=crop&w=900&q=70"
+        "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=70"
     }
   ];
 
